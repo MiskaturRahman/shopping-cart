@@ -25,10 +25,26 @@ secondIncreaser.addEventListener('click', function () {
 
 //function for adding items
 function addItemNumber(itemId, priceId, price) {
+
+    //item counter
     const itemValue = document.getElementById(itemId).value;
     const itemNumber = parseFloat(itemValue);
     const itemText = document.getElementById(itemId).value = itemNumber + 1;
+
+    //price counter
     const itemPrice = document.getElementById(priceId).innerText;
-    const itemPriceNumber = parseInt(itemPrice);
+    const itemPriceNumber = parseFloat(itemPrice);
     const itemUpdatePrice = document.getElementById(priceId).innerText = itemPriceNumber + price;
+
+    //tax
+    const tax = document.getElementById("tax").innerText;
+    const taxValue = parseFloat(tax);
+
+    //subtotal
+    const subTotal = document.getElementById("subTotal").innerText;
+    const subTotalNumber = parseFloat(subTotal);
+
+    //total price
+    const subTotalUpadate = document.getElementById("subTotal").innerText = subTotalNumber + price;
+    const totalUpdate = document.getElementById("total").innerText = subTotalNumber + price + taxValue;
 }
