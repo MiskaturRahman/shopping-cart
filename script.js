@@ -36,9 +36,7 @@ function addItemNumber(itemId, priceId, price) {
     const itemPriceNumber = parseFloat(itemPrice);
     const itemUpdatePrice = document.getElementById(priceId).innerText = itemPriceNumber + price;
 
-    //tax
-    const tax = document.getElementById("tax").innerText;
-    const taxValue = parseFloat(tax);
+
 
     //subtotal
     const subTotal = document.getElementById("subTotal").innerText;
@@ -46,12 +44,37 @@ function addItemNumber(itemId, priceId, price) {
 
     //total price
     const subTotalUpadate = document.getElementById("subTotal").innerText = subTotalNumber + price;
-    const totalUpdate = document.getElementById("total").innerText = subTotalNumber + price + taxValue;
+    const totalUpdate = document.getElementById("total").innerText = subTotalNumber + price;
 }
 
 
 
+//function for removing items
 
+function removeItemNumber(itemId, priceId, price) {
+    //item counter
+    const itemValue = document.getElementById(itemId).value;
+    const itemNumber = parseFloat(itemValue);
+    if (itemNumber < 1) {
+        return 0;
+    }
+    const itemText = document.getElementById(itemId).value = itemNumber - 1;
+
+    //price counter
+    const itemPrice = document.getElementById(priceId).innerText;
+    const itemPriceNumber = parseInt(itemPrice);
+    const itemUpdatePrice = document.getElementById(priceId).innerText = itemPriceNumber - price;
+
+    //tax
+
+    //subtotal
+    const subTotal = document.getElementById('subTotal').innerText;
+    const subTotalNumber = parseInt(subTotal);
+
+    //price total
+    const subTotalUpadate = document.getElementById('subTotal').innerText = subTotalNumber - price;
+    const totalUpdate = document.getElementById('total').innerText = subTotalNumber - price;
+}
 
 
 
